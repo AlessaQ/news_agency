@@ -17,6 +17,3 @@ def index(request):
         "num_visits": num_visits,
     }
     return render(request, "webnews/index.html", context=context)
-
-# def hello_world(request):
-#     return HttpResponse("Hello World!")
