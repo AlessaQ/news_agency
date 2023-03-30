@@ -1,4 +1,5 @@
-{% block content %}
+{% extends 'base.html' %}
+
     <h1>Library Home</h1>
     <p>Welcome to the greatest library</p>
     <h3>Library content:</h3>
@@ -8,4 +9,3 @@
         <li>num_topic: {{ num_topic }}</li>
     </ul>
   <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}</p>
-{% endblock %}
