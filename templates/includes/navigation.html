@@ -21,22 +21,13 @@
 
         <li class="nav-item dropdown dropdown-hover mx-2">
           <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-            Pages
+            Redactors
             <img src="https://appsrv1-147a1.kxcdn.com/soft-ui-design-v1.0.1/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
           </a>
           <div class="dropdown-menu dropdown-menu-animation dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
             <div class="d-none d-lg-block">
-  <a href="javascript:;" class="dropdown-item border-radius-md">
-    About Us
-  </a>
-  <a href="javascript:;" class="dropdown-item border-radius-md">
-    Contact Us
-  </a>
-  <a href="javascript:;" class="dropdown-item border-radius-md">
-    Author
-  </a>
-  <a href="javascript:;" class="dropdown-item border-radius-md">
-    Sign In
+  <a href="{% url 'webnews:redactor-list' %}" class="dropdown-item border-radius-md">
+    Redactor's list
   </a>
 </div>
 

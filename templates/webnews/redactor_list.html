@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="pt-1">
+    <div class="container">
+      <div class="row">
+        <div
+            class="col-lg-13 z-index-2 border-radius-xl mt-2 mx-auto py-3 blur shadow-blur">
+          <h2>Redactors:</h2>
+          {% for redactor in redactor_list %}
+            <section class="pt-1">
+              <div class="container">
+                <div class="row">
+                  <div
+                      class="col-lg-10 z-index-2 border-radius-xl mt-2 mx-auto py-3 blur shadow-blur">
+                    <div class="d-flex justify-content-between">
+        <span>
+          <h4 style="text-align: left" class="mt-2"><a
+              href="#">{{ redactor.username }}</a></h4>
+        </span>
+                      <span>
+          <p style="text-align: left; font-size: 22px">{{ redactor.first_name }} {{ redactor.last_name }}</p>
+        </span>
+                    </div>
+
+
+                    <p>e-mail: {% if redactor.email %}
+                      {{ redactor.email }}
+                    {% else %}
+                      -
+                    {% endif %} </p>
+                    <p>Years of
+                      experience: {{ redactor.years_of_experience }}</p>
+                    <p>Joined: {{ redactor.date_joined }}</p>
+
+                  </div>
+                </div>
+              </div>
+            </section>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
