@@ -21,8 +21,9 @@ from django.urls import path, include
 from webnews.views import index
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("admin/", admin.site. urls),
     path("", index, name="index"),
+    path("webnews/", include("webnews.urls", namespace="webnews")),
 
 ]
 # ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

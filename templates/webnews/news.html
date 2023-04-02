@@ -1,23 +1,20 @@
-
 {% for news in news_list %}
   <section class="pt-1">
     <div class="container">
       <div class="row">
         <div
             class="col-lg-10 z-index-2 border-radius-xl mt-2 mx-auto py-3 blur shadow-blur">
+          <h4 style="text-align: left" class="mt-2"><a
+              href="{% url 'webnews:newspaper-detail' pk=news.id %}">{{ news.title }}</a></h4>
 
-            <li style="text-align: left" class="mt-4">
-              <strong>
-                <a href="#">{{ news.title }}</a>
-              </strong>
-              <hr>
-              {{ news.context }}
-            </li>
+          <p style="text-align: left">{{ news.context }}</p>
+
+
           <p style="text-align: right" class="mt-0 text-black-50">
             {{ news.published_date }}
           </p>
           <p style="text-align: right" class="mt-0 mb-0 text-primary">
-            <a href="#">Read more..</a>.
+            <a href="{% url 'webnews:newspaper-detail' pk=news.id %}">Read more..</a>.
           </p>
 
 

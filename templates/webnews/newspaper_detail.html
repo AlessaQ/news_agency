@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="pt-1">
+    <div class="container">
+      <div class="row">
+        <div
+            class="col-lg-15 z-index-2 border-radius-xl mt-10 mx-auto py-3 blur shadow-blur">
+              <h2>
+                {{ newspaper.title }}
+              </h2>
+
+              {{ newspaper.context }}
+                      <hr>
+          <p style="text-align: right" class="mt-0 text-black-50">
+            {{ newspaper.published_date }}
+          </p>
+        <div class="d-flex justify-content-between">
+        <span>
+          <a href="#" onclick="history.back()" class="btn btn-sm bg-gradient-faded-primary-vertical  btn-instagram mb-0 me-1 mt-2 mt-md-0">Previous page</a></li>
+        </span>
+        <span>Authors:
+            {% for publisher in newspaper.publishers.all %}
+              <a href="#" class="text-info">{{ publisher.username }}</a>
+              {% if not loop.last %}•{% endif %}
+            {% endfor %}</span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
