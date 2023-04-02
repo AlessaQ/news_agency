@@ -1,11 +1,69 @@
 {% extends 'base.html' %}
 
-    <h1>Library Home</h1>
-    <p>Welcome to the greatest library</p>
-    <h3>Library content:</h3>
-    <ul>
-        <li>num_newspaper: {{ num_newspaper }}</li>
-        <li>num_redactors: {{ num_redactors }}</li>
-        <li>num_topic: {{ num_topic }}</li>
-    </ul>
-  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}</p>
+{% load static %}
+
+{% block content %}
+
+<header class="header-2">
+  <div class="page-header min-vh-100 relative" style="background-image: url('{% static 'img/curved-images/2.jpg' %}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mt-7 mb-7 text-center mx-auto">
+          {% block news %}
+            {% include 'includes/news.html' %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <div class="position-absolute w-100 z-index-0 bottom-0">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="moving-waves">
+          <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(105,100,55,0.40" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,0,0,0.35)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(117,16,33,0.25)" />
+          <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+          <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+<script type="text/javascript">
+
+  if (document.getElementById('state1')) {
+    const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+    if (!countUp.error) {
+      countUp.start();
+    } else {
+      console.error(countUp.error);
+    }
+  }
+  if (document.getElementById('state2')) {
+    const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+    if (!countUp1.error) {
+      countUp1.start();
+    } else {
+      console.error(countUp1.error);
+    }
+  }
+  if (document.getElementById('state3')) {
+    const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+    if (!countUp2.error) {
+      countUp2.start();
+    } else {
+      console.error(countUp2.error);
+    };
+  }
+</script>
+
+{% endblock javascripts %}

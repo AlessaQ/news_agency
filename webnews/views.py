@@ -4,16 +4,8 @@ from webnews.models import Newspaper, Redactor, Topic
 
 
 def index(request):
-    num_newspaper = Newspaper.objects.count()
-    num_redactors = Redactor.objects.count()
-    num_topic = Topic.objects.count()
-    # Показывает количество посещений страницы
-    num_visits = request.session.get("num_visits", 0)
-    request.session["num_visits"] = num_visits + 1
+    news_list = Newspaper.objects.all().select_related("topic")
     context = {
-        "num_newspaper": num_newspaper,
-        "num_redactors": num_redactors,
-        "num_topic": num_topic,
-        "num_visits": num_visits,
+        "news_list": news_list,
     }
     return render(request, "webnews/index.html", context=context)
